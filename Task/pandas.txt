@@ -1,0 +1,709 @@
+Q1. How do you load a CSV file into a Pandas DataFrame?
+
+ 
+
+using the following code:
+
+import pandas as pd
+
+ 
+
+df = pd.read_csv('file.csv')
+
+ 
+
+ 
+
+Q2. How do you check the data type of a column in a Pandas DataFrame?
+
+ 
+
+DataFrame.dtype()
+
+ 
+
+ 
+
+Q3. How do you select rows from a Pandas DataFrame based on a condition?
+
+ 
+
+dic = {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+}
+
+ 
+
+DataFrame =pd.DataFrame.from_dict(data)
+
+ 
+
+DataFrame[DataFrame['Age'] > 13]
+
+ 
+
+ 
+
+the following filter function will filter the sow based on the given condition.
+
+ 
+
+ 
+
+Q4. How do you rename columns in a Pandas DataFrame?
+
+ 
+
+Consider df as the DataFrame
+
+ 
+
+df.rename('oldName': 'newName')
+
+ 
+
+ 
+
+Q5. How do you drop columns in a Pandas DataFrame?
+
+ 
+
+ 
+
+Consider df as the DataFrame
+
+ 
+
+ 
+
+df.drop(['col1','col2'],axis = 1, inplace =  true)
+
+ 
+
+ 
+
+ 
+
+Q6. How do you find the unique values in a column of a Pandas DataFrame?
+
+ 
+
+ 
+
+ 
+
+ 
+
+dic = {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+}
+
+ 
+
+df =pd.DataFrame.from_dict(data)
+
+ 
+
+df.age.unique()
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q7. How do you find the number of missing values in each column of a Pandas DataFrame?
+
+ 
+
+ 
+
+dic = {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+}
+
+ 
+
+df =pd.DataFrame.from_dict(data)
+
+ 
+
+ 
+
+ 
+
+df.isna().sum()
+
+ 
+
+ 
+
+Q8. How do you fill missing values in a Pandas DataFrame with a specific value?
+
+ 
+
+bfill() fill the null value with backword value
+
+ 
+
+ 
+
+ 
+
+or
+
+ 
+
+ 
+
+ffill() fill the null value with forward value
+
+ 
+
+ 
+
+ 
+
+Q9. How do you concatenate two Pandas DataFrames?
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df2 = pd.DataFrame( {
+
+'Name':['nk1','sk1','rk1'],
+
+'Age':[21,31,13]
+
+})
+
+ 
+
+ 
+
+frame =  [df1,df2]
+
+ 
+
+display(frame)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q10. How do you merge two Pandas DataFrames on a specific column?
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df2 = pd.DataFrame( {
+
+'name':['nk1','sk1','rk1'],
+
+'salary':[21,31,13]
+
+})
+
+ 
+
+ 
+
+df1.merge(df2[['name', 'salary']], on = 'name', how = 'left')
+
+ 
+
+ 
+
+ 
+
+Q11. How do you group data in a Pandas DataFrame by a specific column and apply an aggregation function?
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df2=  df1.groupby('name')
+
+print(df2.count())
+
+ 
+
+ 
+
+ 
+
+Q12. How do you pivot a Pandas DataFrame?
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+ 
+
+ 
+
+df = pd.Pivot_table(df,index = ['name'], value = ['age'], aggfun = np.avg())
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q13. How do you change the data type of a column in a Pandas DataFrame?
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+dic = {
+
+ 
+
+'name' : sting,
+
+'Age' :  int
+
+}
+
+ 
+
+ 
+
+ 
+
+df1.astype( dic)
+
+ 
+
+print(df1.dtype())
+
+ 
+
+ 
+
+Q14. How do you sort a Pandas DataFrame by a specific column?
+
+ 
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df1.sort_value(by = ['age'], ascending =  true)
+
+ 
+
+ 
+
+ 
+
+Q15. How do you create a copy of a Pandas DataFrame?
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+df2 =  df1.copy()
+
+ 
+
+ 
+
+ 
+
+Q16. How do you filter rows of a Pandas DataFrame by multiple conditions?
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+df1.loc[df['name'] = 'nk' &  df['age'] < 40]
+
+ 
+
+ 
+
+ 
+
+Q17. How do you calculate the mean of a column in a Pandas DataFrame?
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df1['age'].mean()
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q18. How do you calculate the standard deviation of a column in a Pandas DataFrame?
+
+ 
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df1['age'].std()
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q19. How do you calculate the correlation between two columns in a Pandas DataFrame?
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43],
+
+'Salary': [12,23,43]
+
+})
+
+ 
+
+ 
+
+print(df1.['age'].corr['salary'])
+
+ 
+
+ 
+
+Q20. How do you select specific columns in a DataFrame using their labels?
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43],
+
+'Salary': [12,23,43]
+
+})
+
+ 
+
+ 
+
+print(df1.['age','salary'])
+
+ 
+
+ 
+
+ 
+
+Q21. How do you select specific rows in a DataFrame using their indexes?
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43],
+
+'Salary': [12,23,43]
+
+})
+
+ 
+
+df1.iloc([1])
+
+ 
+
+ 
+
+Q22. How do you sort a DataFrame by a specific column?
+
+ 
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df1.sort_value(by = ['age'], ascending =  true)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q23. How do you create a new column in a DataFrame based on the values of another column?
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+ 
+
+df2 = df1.assign(nnewcol= lambda x: x.salary * x.age)
+
+ 
+
+ 
+
+Q24. How do you remove duplicates from a DataFrame?
+
+ 
+
+ 
+
+ 
+
+df1 = pd.DataFrame( {
+
+'Name':['nk','sk','rk'],
+
+'Age':[12,23,43]
+
+})
+
+ 
+
+print(df1.drop_duplicates())
+
+ 
+
+ 
+
+Q25. What is the difference between .loc and .iloc in Pandas?
+
+ 
+
+ 
+
+both of them helps in the convenient selection of data from the DataFrame in Python
+
+loc is label-based selection.
+
+ 
+
+df1.loc['name']
+
+ 
+
+ 
+
+iloc is integer position-based,
+
+ 
+
+df1.iloc[0]
+
+ 
+
+ 
+
+ 
