@@ -11,3 +11,18 @@ WHERE
 ;
 
 
+52,
+
+SELECT 
+name
+from Customers 
+where referee_id <> 2
+
+
+53,
+
+elect c.name as Customers from 
+customers as c 
+left join orders as o 
+on c.id =  o.customerid
+where o.id is null and o.customerid is null
