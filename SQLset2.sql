@@ -95,8 +95,7 @@ select max(data1)
 from (
 select (abs(p1.point-p2.point)) as data1
 from Points as p1 inner join points as p2 
-on p1.point <> p2.point ) a 
-
+on p1.point <> p2.point ) a1
 
 
 
